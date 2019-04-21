@@ -39,7 +39,6 @@ public class CustomerController {
 	@CrossOrigin
 	@GetMapping(value=URl_REQUEST_CUSTOMERS_LIST,produces=MediaType.APPLICATION_JSON_VALUE)
 	public CommonResponse<List<Customer>> getCustomerList() throws NotFoundException {
-
 		List<Customer> customers =  ic.getListCustomer();
         CommonResponse<List<Customer>> respon = new CommonResponse<>();
         if (!customers.isEmpty()) {
@@ -106,8 +105,7 @@ public class CustomerController {
 		Customer check = ic.getById(customer.getCustomerNumber());
 		CommonResponse<Customer> resp = new CommonResponse<>();
 		if (check==null) {
-			resp.setstatus("102");
-			resp.setmessage("Not Found");
+            throw new NotFoundException("444", "Customers doesn't exist!");
 		} else {
 			ic.saveCustomer(customer);
 			resp.setData(customer);

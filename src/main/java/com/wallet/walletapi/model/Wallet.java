@@ -27,8 +27,6 @@ public class Wallet {
 	@ManyToOne
 	@JoinColumn(name="account_number")
 	private Account account;
-//	@Column(name = "account_number")
-//	private int accountnumber;
 
 	public int getIdWallet() {
 		return idWallet;

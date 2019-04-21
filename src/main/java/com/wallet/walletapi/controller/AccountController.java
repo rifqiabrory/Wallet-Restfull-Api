@@ -64,7 +64,7 @@ public class AccountController {
 		Account check = ia.getById(account_number);
 		CommonResponse<Account> resp = new CommonResponse<>();
 		if (check==null) {
-			throw new NotFoundException("444", String.format("Customer ID %d not found", account_number));
+			throw new NotFoundException("444", String.format("Account ID %d not found", account_number));
 		} else {
 			resp.setData(ia.delete(check));
 		}

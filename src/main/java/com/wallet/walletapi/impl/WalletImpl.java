@@ -12,8 +12,6 @@ import javax.transaction.Transactional;
 
 import com.wallet.walletapi.exception.NotFoundException;
 import com.wallet.walletapi.interfaces.IWallet;
-import com.wallet.walletapi.model.Account;
-import com.wallet.walletapi.model.Customer;
 import com.wallet.walletapi.model.Wallet;
 
 public class WalletImpl implements IWallet {
@@ -29,12 +27,6 @@ public class WalletImpl implements IWallet {
 		 return query.getResultList();
 	}
 
-//	@Override
-//	@Transactional
-//	public Wallet getById(int idWallet) throws NotFoundException {
-//		return em.find(Wallet.class, idWallet);
-//	}
-	
 	@Transactional
 	@Override
 	public Wallet save(Wallet wallet) {

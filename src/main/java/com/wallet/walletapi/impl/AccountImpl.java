@@ -20,14 +20,6 @@ public class AccountImpl implements IAccount {
 	
 	@PersistenceContext
 	private EntityManager em;
-	
-	@SuppressWarnings("unchecked")
-	@Override
-	@Transactional(readOnly=true)
-	public List<Account> getListAccount() {
-		Query query = em.createQuery("From Account");
-		return query.getResultList();
-	}
 
 	@Transactional
 	@Override
@@ -40,12 +32,6 @@ public class AccountImpl implements IAccount {
 	public Account saveAccount(Account account) {
 		Account acc =em.merge(account);
 		return acc;
-	}
-
-	@Transactional
-	@Override
-	public Account updateAccount(Account account) {
-		return null;
 	}
 
 	@Transactional
@@ -87,5 +73,4 @@ public class AccountImpl implements IAccount {
 		//em.merge(q);
 		return em.merge(q);
 	}
-
 }
