@@ -9,12 +9,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 @Entity(name = "Wallet")
 @Table(name = "tbl_wallet")
 public class Wallet {
-
 	@Id
-	// @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_wallet")
 	private int idWallet;
 
@@ -59,13 +62,5 @@ public class Wallet {
 	public void setAccount(Account account) {
 		this.account = account;
 	}
-
-//	public int getAccountnumber() {
-//		return accountnumber;
-//	}
-//
-//	public void setAccountnumber(int accountnumber) {
-//		this.accountnumber = accountnumber;
-//	}
 
 }

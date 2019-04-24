@@ -9,6 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 @Entity(name = "WalletAccount")
 @Table(name = "tbl_wallet_account")
 public class WalletAccount {

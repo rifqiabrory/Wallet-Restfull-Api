@@ -12,8 +12,12 @@ import com.wallet.walletapi.interfaces.ICustomer;
 import com.wallet.walletapi.interfaces.ITransaction;
 import com.wallet.walletapi.interfaces.IWallet;
 
-//@Configuration
-//jika tidak di-import  di main maka di tambahkan anotasi di setiap class bean
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
+//@Configuration = if not imported in the main app,than add anotation every beans class
 public class BeanConfig {
 	
 	@Bean

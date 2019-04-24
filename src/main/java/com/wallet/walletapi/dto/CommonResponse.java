@@ -1,5 +1,10 @@
 package com.wallet.walletapi.dto;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 public class CommonResponse<T> {
 	private String status , message;
 	private T data;

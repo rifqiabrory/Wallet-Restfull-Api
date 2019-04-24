@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 @Entity(name = "Customer")
 @Table(name = "tbl_customer")
 public class Customer {
@@ -78,6 +83,5 @@ public class Customer {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 	
 }

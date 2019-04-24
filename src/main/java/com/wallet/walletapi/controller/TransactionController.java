@@ -20,15 +20,18 @@ import com.wallet.walletapi.interfaces.IAccount;
 import com.wallet.walletapi.interfaces.ITransaction;
 import com.wallet.walletapi.model.Transaction;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 @RestController
 @RequestMapping("api")
 @CrossOrigin
 public class TransactionController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TransactionController.class);
-	
-	public static final String URL_REQUEST_TRANSACTION="transaction";
+
 	public static final String URL_REQUEST_TRANSACTION_LIST="transactions";
-	public static final String URL_REQUEST_TRANSACTION_LIST1="transaction1";
 	public static final String URL_REQUEST_TRANSACTION_BY_ID="transaction/{id}";
 	public static final String URL_REQUEST_TRANSACTION_TOPUP="transaction/topup";
 	public static final String URL_REQUEST_TRANSACTION_TRANSFER="transaction/transfer";
@@ -56,7 +59,6 @@ public class TransactionController {
 	}
 	
 	@CrossOrigin
-	@GetMapping(value=URL_REQUEST_TRANSACTION_LIST1)
 	public CommonResponse<List<Transaction>> getTransactionList(@RequestParam(name="accountNumber", defaultValue="") int accountNumber) {
 		List<Transaction> list;
 		list = it.getListTransaction1(accountNumber);

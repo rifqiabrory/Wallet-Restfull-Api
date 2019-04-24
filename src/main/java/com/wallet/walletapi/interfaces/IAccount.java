@@ -5,6 +5,11 @@ import java.util.List;
 import com.wallet.walletapi.exception.NotFoundException;
 import com.wallet.walletapi.model.Account;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 public interface IAccount {
 	List<Account> getListAccount(int customerNumber);
 	Account getById(int accountNumber) throws NotFoundException;

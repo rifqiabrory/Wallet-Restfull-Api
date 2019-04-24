@@ -16,6 +16,11 @@ import com.wallet.walletapi.interfaces.IAccount;
 import com.wallet.walletapi.model.Account;
 import com.wallet.walletapi.model.Customer;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 public class AccountImpl implements IAccount {
 	
 	@PersistenceContext

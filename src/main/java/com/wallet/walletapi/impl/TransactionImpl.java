@@ -15,6 +15,11 @@ import com.wallet.walletapi.interfaces.ITransaction;
 import com.wallet.walletapi.model.Account;
 import com.wallet.walletapi.model.Transaction;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 public class TransactionImpl implements ITransaction {
 
 	@PersistenceContext
@@ -27,12 +32,8 @@ public class TransactionImpl implements ITransaction {
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<Transaction> query = builder.createQuery(Transaction.class);
 		Root<Transaction> root = query.from(Transaction.class);
-//		
-//		query.select(root).where(builder.equal(root.g, y));
-//		
-		//query.select(root).where(builder.equal(root.get("customer").get("customerNumber"), accountNumber));
+
 		Query q = em.createQuery(query);
-				
 		return q.getResultList();
 	}
 
@@ -42,22 +43,9 @@ public class TransactionImpl implements ITransaction {
 		return em.find(Transaction.class, idTransaction);
 	}
 
-//	@Override
-//	@Transactional
-//	public Transaction update(Transaction transaction) {
-//		return null;
-//	}
-//
-//	@Override
-//	public Transaction delete(Transaction transaction) {
-//		em.remove(transaction);
-//		return transaction;
-//	}
-
 	@Override
 	@Transactional
 	public Transaction topUp(Transaction transaction) {
-		//double balance = 
 		Transaction trans = em.merge(transaction);
 		return trans;
 	}
@@ -81,11 +69,9 @@ public class TransactionImpl implements ITransaction {
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<Transaction> query = builder.createQuery(Transaction.class);
 		Root<Transaction> root = query.from(Transaction.class);
-		
+
 		query.select(root).where(builder.equal(root.get("transaction").get("accountNumber"), accountNumber));
-		
 		Query q = em.createQuery(query);
-				
 		return q.getResultList();
 	}
 

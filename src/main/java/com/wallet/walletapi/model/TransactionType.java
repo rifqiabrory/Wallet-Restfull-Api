@@ -5,12 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 @Entity(name = "TransactionType")
 @Table(name = "tbl_transaction_type")
 public class TransactionType {
 
 	@Id
-//	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "transaction_type")
 	private int transactionType;
 

@@ -7,21 +7,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.wallet.walletapi.dto.CommonResponse;
 import com.wallet.walletapi.exception.NotFoundException;
 import com.wallet.walletapi.interfaces.IAccount;
 import com.wallet.walletapi.model.Account;
 
+/**
+*   @RIFQIABRORY
+*   web developer
+*   enigma batch II
+* */
 @RestController
 @RequestMapping("api")
 @CrossOrigin
@@ -83,5 +80,18 @@ public class AccountController {
 		}
 		return resp;
 	}
-	
+
+	@CrossOrigin
+	@PutMapping(value=URl_REQUEST_ACCOUNT_BY_ID)
+	public CommonResponse<Account> updateAccountBy(@RequestBody Account account) throws NotFoundException {
+		Account check = ia.getById(account.getAccountNumber());
+		CommonResponse<Account> resp = new CommonResponse<>();
+		if (check==null) {
+			throw new NotFoundException("444", "Account doesn't exist!");
+		} else {
+			ia.saveAccount(account);
+			resp.setData(account);
+		}
+		return resp;
+	}
 }

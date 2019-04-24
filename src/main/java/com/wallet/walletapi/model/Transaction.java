@@ -11,12 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/* Relasi Database,
- * Entity ini yang Mengirim 
- * ForeignKey ke TransactionTypeEntity(PrimeryKey)
- * dengan ERD @ManyToOne @JoinColumn
-*/
-
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 @Entity(name = "Transaction")
 @Table(name = "tbl_transaction")
 public class Transaction {
@@ -43,17 +42,6 @@ public class Transaction {
 	
 	@Column(name="account_number")
 	private int accountNumber;
-//	@ManyToOne
-//	@JoinColumn(name="account_number")
-//	private Account accountNumber;
-//	
-//	public Account getAccountNumber() {
-//		return accountNumber;
-//	}
-//
-//	public void setAccountNumber(Account accountNumber) {
-//		this.accountNumber = accountNumber;
-//	}
 
 	public int getIdTransaction() {
 		return idTransaction;
@@ -102,6 +90,4 @@ public class Transaction {
 	public void setTransactionType(int transactionType) {
 		this.transactionType = transactionType;
 	}
-
-	
 }

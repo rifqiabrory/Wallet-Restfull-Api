@@ -23,6 +23,11 @@ import com.wallet.walletapi.exception.UserException;
 import com.wallet.walletapi.interfaces.IWallet;
 import com.wallet.walletapi.model.Wallet;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 @RestController
 @RequestMapping("api")
 @CrossOrigin

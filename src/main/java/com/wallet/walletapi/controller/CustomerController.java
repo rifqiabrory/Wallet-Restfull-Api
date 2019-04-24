@@ -23,6 +23,11 @@ import com.wallet.walletapi.exception.UserException;
 import com.wallet.walletapi.interfaces.ICustomer;
 import com.wallet.walletapi.model.Customer;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 @RestController
 @RequestMapping("api")
 @CrossOrigin
@@ -32,7 +37,7 @@ public class CustomerController {
 	public static final String URl_REQUEST_CUSTOMER = "customer"; //create
 	public static final String URl_REQUEST_CUSTOMERS_LIST = "customers";//read
 	public static final String URl_REQUEST_CUSTOMER_BY_ID = "customer/{customer_number}";//Get By Customer Number
-	public static final String URl_REQUEST_CUSTOMER_LOGIN = "login/{username}/{password}";
+	public static final String URl_REQUEST_CUSTOMER_LOGIN = "login/";
 	@Autowired
 	private ICustomer ic;
 
@@ -49,18 +54,16 @@ public class CustomerController {
         return respon;
 
 	}
-	
-	@GetMapping(value=URl_REQUEST_CUSTOMER_LOGIN)
-	public CommonResponse<Customer> getCustomerByUsernamePassword(@PathVariable String username,@PathVariable String password) throws NotFoundException{
-		Customer customer = ic.getByUsernamePassword(username, password);
+
+	@CrossOrigin
+	@PostMapping(value=URl_REQUEST_CUSTOMER_LOGIN)
+	public CommonResponse<Customer> getCustomerByUsernamePassword(@RequestBody Customer customer) throws NotFoundException{
 		CommonResponse<Customer> resp = new CommonResponse<>();
-		if (!StringUtils.isEmpty(customer)) {
-			resp.getData();
-		} else {
-			throw new NotFoundException("444", "Customer doesn't exist!");
-		}
-		resp.setData(ic.getByUsernamePassword(username, password));
-		return resp;}
+		String username = customer.getUsername();
+		String password = customer.getPassword();
+		resp.setData(ic.getCustomerByUsernamePassword(username,password));
+		return resp;
+	}
 	
 	@CrossOrigin
 	@PostMapping(value=URl_REQUEST_CUSTOMER)

@@ -9,17 +9,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/* Relasi Database,
- * Entity ini yang Mengirim 
- * ForeignKey ke CustomerEntity(PrimeryKey)
- * dengan ERD @ManyToOne @JoinColumn
-*/
-
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 @Entity(name="Account")
 @Table(name="tbl_account")
 public class Account {
 	@Id
-	//@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="account_number")
 	private int accountNumber;
 	
@@ -31,10 +29,7 @@ public class Account {
 	
 	@Column(name="balance")
 	private double balance;
-	
-//	@Column(name="customer_number")
-//	private int customerNumber;
-	
+
 	@ManyToOne
 	@JoinColumn(name="customer_number")
 	private Customer customer;
@@ -79,8 +74,4 @@ public class Account {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-
-	
-
-	
 }

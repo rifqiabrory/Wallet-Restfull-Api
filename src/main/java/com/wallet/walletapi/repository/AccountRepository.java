@@ -8,8 +8,11 @@ import org.springframework.data.repository.query.Param;
 
 import com.wallet.walletapi.model.Account;
 
-
-
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 public interface AccountRepository extends CrudRepository<Account, Integer>{
 	
 	@Query("FROM Account where customer.customerNumber= : customerNumber")

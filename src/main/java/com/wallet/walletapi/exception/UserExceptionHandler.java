@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.wallet.walletapi.dto.CommonResponse;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 @ControllerAdvice
 public class UserExceptionHandler {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserExceptionHandler.class);
@@ -46,7 +51,7 @@ public class UserExceptionHandler {
 		LOGGER.warn(e.getMessage());
 		LOGGER.info(e.getMessage());
 		LOGGER.debug(e.getMessage());
-		
+
 		return new ResponseEntity<CommonResponse>(new CommonResponse("500","Exception found"),HttpStatus.OK);
 	}
 	

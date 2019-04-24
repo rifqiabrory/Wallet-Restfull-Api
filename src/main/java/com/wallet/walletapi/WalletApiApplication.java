@@ -11,8 +11,6 @@ import com.wallet.walletapi.config.BeanConfig;
 @SpringBootApplication
 @Import({BeanConfig.class})
 @EntityScan({"com.wallet.walletapi.model","com.wallet.walletapi"})
-//@EnableJpaRepositories({"com.wallet.walletapi.repository"})
-//jika banyak ({"...","..."})
 public class WalletApiApplication {
 
 	public static void main(String[] args) {

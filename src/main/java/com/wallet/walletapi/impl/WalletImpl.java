@@ -14,6 +14,11 @@ import com.wallet.walletapi.exception.NotFoundException;
 import com.wallet.walletapi.interfaces.IWallet;
 import com.wallet.walletapi.model.Wallet;
 
+/**
+ *   @RIFQIABRORY
+ *   web developer
+ *   enigma batch II
+ * */
 public class WalletImpl implements IWallet {
 
 	@PersistenceContext
@@ -44,7 +49,6 @@ public class WalletImpl implements IWallet {
 	@Transactional
 	@Override
 	public Wallet delete(Wallet idWallet) {
-		// TODO Auto-generated method stub
 		em.remove(idWallet);
 		return idWallet;
 	}
@@ -66,8 +70,6 @@ public class WalletImpl implements IWallet {
 	@Transactional
 	@Override
 	public Wallet getById(int idWallet) throws NotFoundException {
-		// TODO Auto-generated method stub
-		//em.find(Wallet.class, primaryKey)
 		return em.find(Wallet.class, idWallet);
 	}
 
