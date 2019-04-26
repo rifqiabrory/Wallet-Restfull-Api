@@ -24,7 +24,7 @@ public class Wallet {
 	@Column(name = "description")
 	private String description;
 
-	@Column(name = "created_date")
+	@Column(name = "created_date", insertable = false)
 	private Date createdDate;
 
 	@ManyToOne

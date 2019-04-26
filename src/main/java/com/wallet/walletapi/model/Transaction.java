@@ -25,7 +25,7 @@ public class Transaction {
 	@Column(name = "id_transaction")
 	private int idTransaction;
 
-	@Column(name = "date")
+	@Column(name = "date", insertable = false)
 	private Date date;
 
 	@Column(name = "an_debit")

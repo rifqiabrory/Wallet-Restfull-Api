@@ -11,6 +11,8 @@ import com.wallet.walletapi.interfaces.IAccount;
 import com.wallet.walletapi.interfaces.ICustomer;
 import com.wallet.walletapi.interfaces.ITransaction;
 import com.wallet.walletapi.interfaces.IWallet;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  *   @RIFQIABRORY
@@ -38,5 +40,16 @@ public class BeanConfig {
 	@Bean
 	public ITransaction iTransaction() {
 		return new TransactionImpl();
+	}
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**")
+						.allowedMethods("HEAD","GET","PUT","POST","DELETE","PATCH");
+			}
+		};
 	}
 }

@@ -53,7 +53,6 @@ public class WalletImpl implements IWallet {
 		return idWallet;
 	}
 
-	@Transactional
 	@Override
 	public List<Wallet> getListWallet1(int idWallet) {
 		CriteriaBuilder builder = em.getCriteriaBuilder();

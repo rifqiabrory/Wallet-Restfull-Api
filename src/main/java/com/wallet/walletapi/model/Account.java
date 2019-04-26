@@ -1,13 +1,10 @@
 package com.wallet.walletapi.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *   @RIFQIABRORY
@@ -23,8 +20,8 @@ public class Account {
 	
 	@Column(name="account_name")
 	private String accountName;
-	
-	@Column(name="open_date")
+
+	@Column(name="open_date",insertable = false)
 	private Date openDate;
 	
 	@Column(name="balance")
@@ -65,7 +62,6 @@ public class Account {
 	public void setOpenDate(Date openDate) {
 		this.openDate = openDate;
 	}
-
 
 	public Customer getCustomer() {
 		return customer;
