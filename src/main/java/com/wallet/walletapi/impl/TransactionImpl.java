@@ -14,6 +14,7 @@ import com.wallet.walletapi.exception.NotFoundException;
 import com.wallet.walletapi.interfaces.ITransaction;
 import com.wallet.walletapi.model.Account;
 import com.wallet.walletapi.model.Transaction;
+import com.wallet.walletapi.model.TransactionType;
 
 /**
  *   @RIFQIABRORY
@@ -24,7 +25,7 @@ public class TransactionImpl implements ITransaction {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
@@ -70,7 +71,7 @@ public class TransactionImpl implements ITransaction {
 		CriteriaQuery<Transaction> query = builder.createQuery(Transaction.class);
 		Root<Transaction> root = query.from(Transaction.class);
 
-		query.select(root).where(builder.equal(root.get("transaction").get("accountNumber"), accountNumber));
+		query.select(root).where(builder.equal(root.get("account").get("accountNumber"), accountNumber));
 		Query q = em.createQuery(query);
 		return q.getResultList();
 	}

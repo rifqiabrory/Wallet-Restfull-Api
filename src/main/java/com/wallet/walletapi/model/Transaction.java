@@ -39,9 +39,10 @@ public class Transaction {
 
 	@Column(name = "transaction_type")
 	private int transactionType;
-	
-	@Column(name="account_number")
-	private int accountNumber;
+
+	@ManyToOne
+	@JoinColumn(name="account_number")
+	private Account account;
 
 	public int getIdTransaction() {
 		return idTransaction;
@@ -90,4 +91,8 @@ public class Transaction {
 	public void setTransactionType(int transactionType) {
 		this.transactionType = transactionType;
 	}
+
+	public Account getAccount() { return account; }
+
+	public void setAccount(Account account) { this.account = account; }
 }
