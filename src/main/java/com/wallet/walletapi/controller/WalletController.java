@@ -29,7 +29,7 @@ import com.wallet.walletapi.model.Wallet;
  *   enigma batch II
  * */
 @RestController
-@RequestMapping("api")
+//@RequestMapping("api")
 @CrossOrigin
 public class WalletController {
 

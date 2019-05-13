@@ -27,7 +27,7 @@ import com.wallet.walletapi.model.Transaction;
  *   enigma batch II
  * */
 @RestController
-@RequestMapping("api")
+//@RequestMapping("api")
 @CrossOrigin
 public class TransactionController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TransactionController.class);

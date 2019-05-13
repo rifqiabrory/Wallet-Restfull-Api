@@ -29,7 +29,7 @@ import com.wallet.walletapi.model.Customer;
  *   enigma batch II
  * */
 @RestController
-@RequestMapping("api")
+//@RequestMapping("api")
 @CrossOrigin
 public class CustomerController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
