@@ -70,6 +70,17 @@ public class CustomerImpl implements ICustomer {
 		return (Customer) qry.getSingleResult();
 	}
 
+	@Override
+	public Customer getCustomerByUsername(String username) {
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaQuery<Customer> query = builder.createQuery(Customer.class);
+		Root<Customer> root = query.from(Customer.class);
+
+		query.select(root).where( builder.equal(root.get("username"), username) );
+		Query qry = em.createQuery(query);
+		return (Customer) qry.getSingleResult();
+	}
+
 
 }
 

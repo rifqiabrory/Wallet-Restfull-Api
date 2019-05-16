@@ -17,4 +17,5 @@ public interface ICustomer {
 	Customer updateCustomer(Customer customer);
 	Customer delete(Customer customer);
 	Customer getCustomerByUsernamePassword(String username,String password) throws NotFoundException;
+	Customer getCustomerByUsername(String username);
 }
