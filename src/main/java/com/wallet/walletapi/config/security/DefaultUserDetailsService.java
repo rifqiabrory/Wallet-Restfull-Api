@@ -6,7 +6,6 @@ import com.wallet.walletapi.model.Customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -29,11 +28,12 @@ public class DefaultUserDetailsService implements UserDetailsService {
     private UserDetails mockUser(String username) {
         try {
             Customer customer = ic.getCustomerByUsername(username);
-            if(customer == null){
+            if (customer == null) {
                 throw new EntityNotFoundException("444", "Customer doesn't exist!");
             }
-            return new User(customer.getUsername(), String.format("{noop}%s",customer.getPassword()),getAuthority());
-        }catch (EntityNotFoundException e) {
+            //return new User(customer.getUsername(), String.format("{noop}%s", customer.getPassword()), getAuthority());
+            return new User(customer, getAuthority());
+        } catch (EntityNotFoundException e) {
             throw new UsernameNotFoundException("Invalid username and password.");
         }
     }

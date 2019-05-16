@@ -13,8 +13,6 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
-import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
@@ -33,9 +31,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Bean
     public TokenStore tokenStore() {
-        /**sample save in memory
-        return new InMemoryTokenStore();**/
-        //return new JdbcTokenStore(dataSource);//store token to database
         return new JwtTokenStore(accessTokenConverter());
     }
 
@@ -59,7 +54,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(
-                Arrays.asList(tokenEnhancer(),accessTokenConverter())
+                Arrays.asList(tokenEnhancer(), accessTokenConverter())
         );
         endpoints.tokenStore(tokenStore())
                 .authenticationManager(authenticationManager)
@@ -73,19 +68,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     }
 
     @Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws  Exception {
-        /**
-         *  sample hardcode
-         * clients
-         *           .inMemory()
-         *           .withClient("CLIENT_ID")
-         *           .secret("{noop}CLIENT_SECRET")
-         *           .authorizedGrantTypes("password","authorization_code","refresh_token")
-         *           .scopes("read","write","trust")
-         *           .accessTokenValiditySeconds(300)
-         *           .refreshTokenValiditySeconds(3600);
-        **/
-
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.jdbc(dataSource);
     }
 }
